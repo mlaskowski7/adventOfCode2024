@@ -17,4 +17,10 @@ total_distance = 0
 for i in range(len(left_list)):
     total_distance += abs(left_list[i] - right_list[i])
 
-print(total_distance)
+print(f"total distance is {total_distance}")
+
+similarity_score = 0
+for element in left_list:
+    similarity_score += element * right_list.count(element)
+
+print(f"similarity score is {similarity_score}")
