@@ -34,10 +34,26 @@ def count(matrix):
 
     return total
 
+def count_second(matrix):
+    total = 0
+    for row in range(1, len(matrix) - 1):
+        for character in range(1, len(matrix[row]) - 1):
+            if (
+                matrix[row][character] == 'A'
+                and matrix[row + 1][character - 1] == 'M'
+                and matrix[row - 1][character - 1] == 'M'
+                and matrix[row - 1][character + 1] == 'S'
+                and matrix[row + 1][character + 1] == 'S'
+            ):
+                total += 1
+
+    return total
+
 if __name__ == '__main__':
     matrix = []
     with open('input.txt', 'r') as input_file:
         for line in input_file:
             matrix.append(list(line.strip()))
     print(count(matrix))
+    print(count_second(matrix))
 
